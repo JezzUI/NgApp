@@ -9,8 +9,8 @@
 </div>
 <ng-container *ngFor="let course of courses">
     <!-- courseCountRadioButton === 'All' || courseCountRadioButton === course.type  -->
-    <div class="course-container" *ngIf="searchText === '' || course.name.toLowerCase().includes(searchText) || course.name.toUpperCase().includes(searchText) ">
-        <!-- <div class="course-container" *ngIf="courseCountRadioButton === 'All' || courseCountRadioButton === course.type "> -->
+    <!-- <div class="course-container" *ngIf="searchText === '' || course.name.toLowerCase().includes(searchText) || course.name.toUpperCase().includes(searchText) "> -->
+        <div class="course-container" *ngIf="courseCountRadioButton === 'All' || courseCountRadioButton === course.type ">
         <div class="course-card">
             <div>
                 <img [src]="course.image" style="width:220px; height:140px;">
