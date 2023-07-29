@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="loginForm" >
+        <label for="name">Name : </label>
+        <input type="text" name="name" id="name"><br><br>
+
+        <label for="age">Age : </label>
+        <input type="number" name="age" id="age"><br><br>
+
+        <label for="pwd">New Password : </label>
+        <input type="password" name="pwd" id="pwd"><br><br>
+
+        <label for="confirmPwd">Confirm Password : </label>
+        <input type="password" name="confirmPwd" id="confirmPwd"><br><br>
+
+        <button type="submit" (click)="submit()">Submit</button>
+
+    </div>
+</div>
+<div>
+     <router-outlet></router-outlet>
+</div>
+  <app-courses></app-courses>

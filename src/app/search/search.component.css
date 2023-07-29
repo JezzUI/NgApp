@@ -1,4 +1,5 @@
-.serch-container{
+.search-container{
+    display: none;
     margin:10px 0px;
 }
 input[type=text]{
@@ -7,4 +8,5 @@ input[type=text]{
     padding: 10px;
     border: none;
     margin-left:10px;
+    border-radius: 3px;
 }
