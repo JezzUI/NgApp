@@ -12,9 +12,13 @@ export class LoginComponent {
 
   constructor(
   ) {}
+
+  destroy: boolean = true;
+  showCourses: boolean = false;
   
   submit() {
-    
+    this.destroy=false;
+    this.showCourses=true;
   }
 }
 
