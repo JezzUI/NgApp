@@ -1,0 +1,25 @@
+<div class="container">
+  <div style="text-align:center">
+    <h2>Contact Us</h2>
+    <p>Swing by for a cup of coffee, or leave us a message:</p>
+  </div>
+  <div class="row">
+    <div class="column">
+      <form action="/action_page.php">
+        <label for="fname" class="labels">First Name</label>
+        <input type="text" id="fname" name="firstname" [(ngModel)]="fName" placeholder="Your name..">
+        <label for="lname" class="labels">Last Name</label>
+        <input type="text" id="lname" name="lastname" [(ngModel)]="lName" placeholder="Your last name..">
+        <label for="country" class="labels">Country</label>
+        <select id="country" name="country" [(ngModel)]="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+        <label for="subject" class="labels">Subject</label>
+        <textarea id="subject" name="subject" [(ngModel)]="subject" placeholder="Write something.." style="height:170px"></textarea>
+        <input type="submit" value="Submit" (click)="submitt()" >
+      </form>
+    </div>
+  </div>
+</div>

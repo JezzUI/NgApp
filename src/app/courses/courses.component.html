@@ -1,3 +1,4 @@
+<div class="container">
 <app-header></app-header>
 <div>
     <app-search
@@ -17,7 +18,7 @@
             <div>
                 <img [src]="course.image" style="width:220px; height:140px;">
             </div>
-            <div class="course-name"><h4>{{ course.name}}</h4></div>
+            <div class="course-name"><h4>{{ course.name }}</h4></div>
             <div class="course-description"><p>{{course.description.slice(0, 100)}}...</p></div>
             <div class="details">
                 <div class="course-type" [ngStyle]="{color: course.type === 'Free' ? 'Green' : 'Red'}">{{course.type}}</div>
@@ -26,8 +27,9 @@
             </div>
             <div class="course-buttons">
                 <button class="btn btn-buy">Buy Now</button>
-                <button class="btn btn-show">Show Deatils</button>
+                <button class="btn btn-show" routerLink="/Courses/Course/{{course.id}}">Show Deatils</button>
             </div>
         </div>
     </div>  
 </ng-container>
+</div>

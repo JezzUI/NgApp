@@ -13,5 +13,38 @@
     width: 100%;
     margin:0px auto;
     text-align: center;
-    background-color: #395B64;
+    background-color: #3c555c;
+}
+
+
+.main-container{
+  width: 100%;
+  margin: 10px auto;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #bef70500;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+.active{
+  background-color: #6b6e6e;
 }

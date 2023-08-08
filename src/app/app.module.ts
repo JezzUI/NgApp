@@ -11,29 +11,42 @@ import { FilterComponent } from './filter/filter.component';
 import { HoverDirective } from './eventshandler/hover.directives'; 
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { ErrorComponent } from './error/error.component';
+import { CourseComponent } from './courses/course/course.component';
+import { CourseGuardService } from './course-guard.service';
+import { AuthService } from './auth.service';
+import { CanDeactivateGuard } from './canDeactivateGuard.service';
+import { MyPipePipe } from './my-pipe.pipe';
 
-const appRoute: Routes = [
-  {path: 'courses', component: CoursesComponent }
-];
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
     HeaderComponent,
     SearchComponent,
     FilterComponent,
     HoverDirective,
     LoginComponent,
+    ErrorComponent,
+    CourseComponent,
+    MyPipePipe
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoute)
   ],
-  providers: [],
+  providers: [CourseGuardService, AuthService, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
