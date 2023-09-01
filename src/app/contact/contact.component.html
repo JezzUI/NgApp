@@ -5,20 +5,24 @@
   </div>
   <div class="row">
     <div class="column">
-      <form action="/action_page.php">
+      <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit(reactiveForm.value)">
         <label for="fname" class="labels">First Name</label>
-        <input type="text" id="fname" name="firstname" [(ngModel)]="fName" placeholder="Your name..">
+        <input type="text" [ngClass]="{newClass : true, newsec: false}" id="fname" name="firstname" formControlName="firstname" placeholder="Your name.." required>
         <label for="lname" class="labels">Last Name</label>
-        <input type="text" id="lname" name="lastname" [(ngModel)]="lName" placeholder="Your last name..">
+        <input type="text" id="lname" name="lastname" formControlName="lastname" placeholder="Your last name..">
+        <label for="email" class="labels">E Mail</label>
+        <input type="email" id="email" name="email" formControlName="email" placeholder="email..">
         <label for="country" class="labels">Country</label>
-        <select id="country" name="country" [(ngModel)]="country">
+        <select id="country" name="country" formControlName="country">
           <option value="australia">Australia</option>
           <option value="canada">Canada</option>
           <option value="usa">USA</option>
+          <option value="india">India</option>
         </select>
         <label for="subject" class="labels">Subject</label>
-        <textarea id="subject" name="subject" [(ngModel)]="subject" placeholder="Write something.." style="height:170px"></textarea>
-        <input type="submit" value="Submit" (click)="submitt()" >
+        <textarea id="subject" name="subject" formControlName="subject" placeholder="Write something.." style="height:170px"></textarea>
+        <input type="submit" value="Submit" >
+        <button type="button" value="button" class="del" (click)="deleteRec(reactiveForm.value.id)">Delete</button>
       </form>
     </div>
   </div>

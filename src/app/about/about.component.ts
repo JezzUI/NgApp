@@ -8,9 +8,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AboutComponent implements OnInit {
 
+  lclStr: string;
+  sesStr: string;
+
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.lclStr = sessionStorage.getItem("oldName");
+    console.log(this.lclStr);
   }
 
   GoToHome(){
