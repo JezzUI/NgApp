@@ -6,7 +6,7 @@ textarea,
 email {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #6d7070;
   margin-top: 6px;
   margin-bottom: 16px;
   resize: vertical;
@@ -32,6 +32,7 @@ input[type=submit]:hover {
   justify-content: center;
   /* Center the content horizontally */
   align-items: center;
+  align-content: center;
   /* Center the content vertically */
   border-radius: 5px;
   background-color: #fff;
@@ -41,17 +42,14 @@ input[type=submit]:hover {
 /* Create two columns that float next to eachother */
 .row {
   display: flex;
-  /* Use Flexbox for the row */
-  justify-content: space-between;
-  /* Create space between columns */
-  width: 100%;
+  flex-wrap: wrap;
+  width: 60%;
+  justify-content: flex-start;
 }
 
-.column {
-  flex: 1;
-  /* Each column takes equal width */
+.column {  
+  width: 50%;
   padding: 20px;
-  /* Add some padding for spacing */
 }
 
 .labels {
@@ -84,7 +82,7 @@ input[type=submit]:hover {
 
 .newClass {
   background-color: rgb(221, 216, 216);
-  color: rgb(39, 39, 36);
+  color: rgb(17, 17, 16);
   border: none
 }
 
@@ -119,4 +117,28 @@ input[type=submit]:hover {
   background-color: rgb(99, 98, 98);
   color: rgb(69, 82, 82);
   z-index: 999;
+}
+.shopImage{
+  height: 98%;
+  position: absolute;
+  right: 0px;
+  width: 41%;
+  border-radius: 2px;
+}
+input.ng-invalid, select.ng-invalid{
+  border: 1px solid #f80606;
+}
+@media (max-width: 768px) {
+  .shopImage{
+    display: none;
+  }
+  .row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .column {
+    padding: 5px;
+    width: 100%;
+  }
 }

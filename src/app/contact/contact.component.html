@@ -3,66 +3,51 @@
   <p>Swing by for a cup of coffee, or leave us a message:</p>
 </div>
 <div #pop [ngClass]="{popup: response, popuphid: !response}">
-  <a class="close" (click)="closeModal()" routerLink="/Contact">&times;</a> 
-  <p class="message" >Your details have been saved successfully</p>
+  <a class="close" (click)="closeModal()" routerLink="/Contact">&times;</a>
+  <p class="message">Your details have been saved successfully</p>
 </div>
+<img class="shopImage" src="https://images.herzindagi.info/image/2022/Jan/shopping-tips-for-save-money.jpg" alt="shopping"> 
 <div class="container" #cont [ngClass]="{blurClass: response}">
-  <div class="row">
-    <div class="column">
-      <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit(reactiveForm.value)">
-        <div class="row">
-          <div class="column">
-            <label for="fname" class="labels">First Name</label>
-            <input type="text" aria-hidden="true" [ngClass]="{newClass : true, newsec: false}" id="fname"
-              name="firstname" formControlName="firstname" placeholder="Your name.." required>
-          </div>
-          <div class="column">
-            <label for="lname" class="labels">Last Name</label>
-            <input type="text" id="lname" name="lastname" [ngClass]="{newClass : true, newsec: false}"
-              formControlName="lastname" placeholder="Your last name..">
-          </div>
+  <form [formGroup]="reactiveForm" [noValidate]="false" (ngSubmit)="onSubmit(reactiveForm.value)">
+    <div class="row">
+        <div class="column">
+          <label for="fname" class="labels">First Name</label>
+          <input type="text"  [ngClass]="{newClass: true, newsec: false}" id="fname"
+            name="firstname" formControlName="firstname" placeholder="Your name.." required>
         </div>
-
-        <div class="row">
-          <div class="column">
-            <label for="age" class="labels">Age</label>
-            <input type="number" id="age" name="age" [ngClass]="{newClass : true, newsec: false}" formControlName="age"
-              placeholder="Your age..">
-          </div>
-          <div class="column">
-            <label for="email" class="labels">E Mail</label>
-            <input type="email" id="email" name="email" [ngClass]="{newClass : true, newsec: false}"
-              formControlName="email" placeholder="email..">
-          </div>
+        <div class="column">
+          <label for="lname" class="labels">Last Name</label>
+          <input type="text" id="lname" name="lastname" [ngClass]="{newClass: true, newsec: false}"
+            formControlName="lastname" placeholder="Your last name..">
         </div>
-
-        <div class="row">
-          <div class="column">
-            <label for="country" class="labels">Country</label>
-            <select id="country" name="country" [ngClass]="{newClass : true, newsec: false}" formControlName="country">
-              <option value="Select a country">Select a country</option>
-              <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
-            </select>
-          </div>
+        <div class="column">
+          <label for="age" class="labels">Age</label>
+          <input type="number" id="age" name="age" [ngClass]="{newClass: true, newsec: false}" formControlName="age"
+            placeholder="Your age..">
         </div>
-
-        <div class="row">
-          <div class="column">
-            <label for="subject" class="labels">Subject</label>
-            <textarea id="subject" name="subject" [ngClass]="{newClass : true, newsec: false}" formControlName="subject"
-              placeholder="Write something.." style="height:170px"></textarea>
-          </div>
+        <div class="column">
+          <label for="email" class="labels">E Mail</label>
+          <input type="email" id="email" name="email" [ngClass]="{newClass: true, newsec: false}"
+            formControlName="email" placeholder="email..">
         </div>
-
-        <div class="row">
-          <div class="column">
-            <input type="submit" value="Submit">
-          </div>
-          <div class="column">
-            <button type="button" value="button" class="del" (click)="deleteRec(reactiveForm.value.id)">Delete</button>
-          </div>
+        <div class="column">
+          <label for="country" class="labels">Country</label>
+          <select id="country" name="country" [ngClass]="{newClass: true, newsec: false}" formControlName="country">
+            <option value="">Select a country</option>
+            <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
+          </select>
         </div>
-      </form>
+        <div class="column">
+          <label for="subject" class="labels">Subject</label>
+          <textarea id="subject" name="subject" [ngClass]="{newClass: true, newsec: false}" formControlName="subject"
+            placeholder="Write something.." style="height:170px"></textarea>
+        </div>
+        <div class="column">
+          <input type="submit" value="Submit">
+        </div>
+        <div class="column">
+          <button type="button" value="button" class="del" (click)="deleteRec(reactiveForm.value.id)">Delete</button>
+        </div>
     </div>
-  </div>
+  </form>
 </div>

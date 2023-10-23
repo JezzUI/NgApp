@@ -10,10 +10,14 @@ import { Courses } from 'src/app/services/courses.service';
 export class CourseComponent implements OnInit, OnDestroy{
 
   course: any;
+  courses = [];
   courseId: any;
   subs: any;
   editMode: boolean = false;
   activeSubs: any;
+  isLoading: boolean = false;
+
+   courseApi = this.service;
 
   constructor(private service: Courses,
      private activateroute: ActivatedRoute,
@@ -23,10 +27,20 @@ export class CourseComponent implements OnInit, OnDestroy{
     // this.courseId = this.route.snapshot.params['id'];
     // //this.courseId = this.route.snapshot.params['name'];
     // this.course = this.service.courses.find(x => x.id == this.courseId);
+    this.courseApi.fetchProd().subscribe({
+      next: res => {
+        this.course = res.find((x: { id: any; }) => x.id == this.courseId);
+      },
+      error: error => {
+        console.error('Error loading courses:', error);
+      },
+      complete: () => {
+        this.isLoading = false; // Set loading to false when the API call is complete
+      }
+    });
 
     this.subs= this.activateroute.paramMap.subscribe((param) =>{
       this.courseId = param.get("id");
-      this.course = this.service.courses.find(x => x.id == this.courseId);
     });
 
      this.activeSubs = this.activateroute.queryParamMap.subscribe((param) =>{

@@ -20,7 +20,7 @@
     </div>
     <ng-container *ngFor="let course of course">
         <!-- courseCountRadioButton === 'All' || courseCountRadioButton === course.type  -->
-        <div class="course-container" *ngIf="searchText === '' || course.title.toLowerCase().includes(searchText) || course.title.toUpperCase().includes(searchText) ">
+        <div class="course-container" *ngIf="searchText === '' || course.title.toLowerCase().includes(searchText) || course.title.toUpperCase().includes(searchText); ">
         <!-- <div class="course-container"
             *ngIf="courseCountRadioButton === 'All'
             || courseCountRadioButton === course.category.slice(course.category.indexOf(' ') + 1) 

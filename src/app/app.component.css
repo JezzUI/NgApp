@@ -1,29 +1,9 @@
 
-.container{
-  display: grid;
-align-items: center;
-justify-content: center;
-}
-
-/* .containerCourses{
-  width: 880px;
-  margin:0px auto;
-  text-align: center;
-  background-color: #3c555c;
-} */
-.nav-container{
-  width: 98.7vw;
-  background-color: beige;
-}
-
-.main-container{
-width: 98.7vw;
-}
 ul {  
 list-style-type: none;
 overflow: hidden;
 background-color:rgb(235, 223, 157);
-color: wheat  ;
+color: rgb(236, 161, 21)  ;
 }
 
 li {
@@ -46,4 +26,19 @@ color: white;
 .active, li a:active{
 background-color: #4b5858;
 color: wheat;
+}
+.auth{
+  float: right;
+}
+
+@media (max-width: 768px) {
+li {
+  float: none;
+}
+.auth{
+  float: none;
+}
+.auth{
+  display: none;
+}
 }

@@ -1,4 +1,8 @@
 <div class="search-container">
-    <span style="color: rgb(226, 220, 183);font-size: large;font-weight: bolder;">Search:</span>
-    <input type="text" [(ngModel)]="searchedWord" (input)="onChangeVal()">
+    <div class="search" id="label">
+        <label for="label">Search:</label>
+    </div>
+    <div  class="search textBox">
+        <input  type="text" style="width: 100%;"[(ngModel)]="searchedWord" (input)="onChangeVal()">
+    </div>
 </div>

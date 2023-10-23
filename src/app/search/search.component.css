@@ -1,13 +1,29 @@
 .search-container{
-    display: block;
-    margin:10px 0px;
+    display: flex;
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-content: center;
 }
-input[type=text]{
-    width: 500px;
-    height: 40px;
-    padding: 10px;
-    border: none;
-    margin-left:10px;
+input{
+    height: 30px;
     border-radius: 5px;
-    box-shadow: 0px, 10px;
+    border: none;
+}
+.search{
+    color: rgb(226, 220, 183);
+    font-size: large;
+    font-weight: bolder;
+    padding: 1%;
+}
+.textBox{
+    height: 5%;
+    flex-grow: 0.5;
+}
+
+@media (max-width: 768px) {
+   .search-container{ 
+    flex-direction: column ;
+    justify-content: center;
+   }
 }

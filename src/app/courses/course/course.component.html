@@ -1,9 +1,6 @@
 <div><button routerLink="/Courses/Course/1">Back to first product</button></div>
-<div class="course-container">
-    <div class="img">
-        <img src="{{course.image}}" width="580" height="280"
-            style="padding: 10px;box-sizing: border-box;border-radius: 10px;">
-    </div>
+<div class="course-container" *ngIf="course != undefined">
+        <img class="image" src="{{course.image}}" >
     <div>
         <h1 style="text-align: center;" *ngIf="!editMode">{{course.title | myPipe}}</h1>
         <div *ngIf="editMode" class="editText" style="text-align: center;">
