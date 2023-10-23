@@ -1,4 +1,4 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, VERSION, ViewEncapsulation } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Courses } from './services/courses.service';
 import { AuthService } from './auth.service';
@@ -7,7 +7,8 @@ import { AuthService } from './auth.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [Courses]
+  providers: [Courses],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class AppComponent {
 

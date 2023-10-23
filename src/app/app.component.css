@@ -1,37 +1,29 @@
 
 .container{
-  display: flex;
+  display: grid;
 align-items: center;
 justify-content: center;
 }
 
-.loginForm{
-  width: 400px;
-height: 300px;
-}
-
-.containerCourses{
+/* .containerCourses{
   width: 880px;
   margin:0px auto;
   text-align: center;
   background-color: #3c555c;
-}
+} */
 .nav-container{
-  position: relative;
-  width: 880px;
+  width: 98.7vw;
   background-color: beige;
 }
 
 .main-container{
-width: 880px;
-margin: 0px auto;
+width: 98.7vw;
 }
-ul {
+ul {  
 list-style-type: none;
-margin: 0;
-padding: 0;
 overflow: hidden;
-background-color: #bef70500;
+background-color:rgb(235, 223, 157);
+color: wheat  ;
 }
 
 li {
@@ -49,7 +41,9 @@ text-decoration: none;
 /* Change the link color to #111 (black) on hover */
 li a:hover {
 background-color: #7e7676;
+color: white;
 }
-.active{
-background-color: #6b6e6e;
+.active, li a:active{
+background-color: #4b5858;
+color: wheat;
 }

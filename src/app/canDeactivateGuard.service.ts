@@ -8,8 +8,7 @@ export interface GlobalDeactivate{
 
 export class CanDeactivateGuard{
 
-    canDeactivate(component: GlobalDeactivate, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot,
-        nextState: RouterStateSnapshot){
+    canDeactivate(component: GlobalDeactivate){
 
             return component.canExit();
             

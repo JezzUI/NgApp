@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -21,6 +21,11 @@ import { CourseGuardService } from './course-guard.service';
 import { AuthService } from './auth.service';
 import { CanDeactivateGuard } from './canDeactivateGuard.service';
 import { MyPipePipe } from './my-pipe.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+// import { NewappModule } from './newapp/newapp.module';
 
 
 
@@ -47,7 +52,9 @@ import { MyPipePipe } from './my-pipe.pipe';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    RouterModule,
+    BrowserAnimationsModule
   ],
   providers: [CourseGuardService, AuthService, CanDeactivateGuard],
   bootstrap: [AppComponent]

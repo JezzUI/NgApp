@@ -9,6 +9,10 @@
     display: flex;
     margin: 20px 0px;
     text-align: center;
+    justify-content: center;
+}
+.courseDet{
+    padding: 15px 15px;
 }
 
 #editBut{
@@ -17,6 +21,7 @@
         padding: 12px 20px;
         border: none;
         cursor: pointer;
+        width: 50%;
 }
 #editBut:hover {
     background-color: #45a049;
@@ -28,7 +33,14 @@
     padding: 12px 20px;
     border: none;
     cursor: pointer;
+    width: 50%;
 }
 #updateBut:hover {
 background-color: #1169dd;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

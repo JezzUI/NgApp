@@ -1,28 +1,67 @@
-<div class="container">
-  <div style="text-align:center">
-    <h2>Contact Us</h2>
-    <p>Swing by for a cup of coffee, or leave us a message:</p>
-  </div>
+<div style="text-align:center">
+  <h2>Contact Us</h2>
+  <p>Swing by for a cup of coffee, or leave us a message:</p>
+</div>
+<div #pop [ngClass]="{popup: response, popuphid: !response}">
+  <a class="close" (click)="closeModal()" routerLink="/Contact">&times;</a> 
+  <p class="message" >Your details have been saved successfully</p>
+</div>
+<div class="container" #cont [ngClass]="{blurClass: response}">
   <div class="row">
     <div class="column">
       <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit(reactiveForm.value)">
-        <label for="fname" class="labels">First Name</label>
-        <input type="text" [ngClass]="{newClass : true, newsec: false}" id="fname" name="firstname" formControlName="firstname" placeholder="Your name.." required>
-        <label for="lname" class="labels">Last Name</label>
-        <input type="text" id="lname" name="lastname" formControlName="lastname" placeholder="Your last name..">
-        <label for="email" class="labels">E Mail</label>
-        <input type="email" id="email" name="email" formControlName="email" placeholder="email..">
-        <label for="country" class="labels">Country</label>
-        <select id="country" name="country" formControlName="country">
-          <option value="australia">Australia</option>
-          <option value="canada">Canada</option>
-          <option value="usa">USA</option>
-          <option value="india">India</option>
-        </select>
-        <label for="subject" class="labels">Subject</label>
-        <textarea id="subject" name="subject" formControlName="subject" placeholder="Write something.." style="height:170px"></textarea>
-        <input type="submit" value="Submit" >
-        <button type="button" value="button" class="del" (click)="deleteRec(reactiveForm.value.id)">Delete</button>
+        <div class="row">
+          <div class="column">
+            <label for="fname" class="labels">First Name</label>
+            <input type="text" aria-hidden="true" [ngClass]="{newClass : true, newsec: false}" id="fname"
+              name="firstname" formControlName="firstname" placeholder="Your name.." required>
+          </div>
+          <div class="column">
+            <label for="lname" class="labels">Last Name</label>
+            <input type="text" id="lname" name="lastname" [ngClass]="{newClass : true, newsec: false}"
+              formControlName="lastname" placeholder="Your last name..">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="column">
+            <label for="age" class="labels">Age</label>
+            <input type="number" id="age" name="age" [ngClass]="{newClass : true, newsec: false}" formControlName="age"
+              placeholder="Your age..">
+          </div>
+          <div class="column">
+            <label for="email" class="labels">E Mail</label>
+            <input type="email" id="email" name="email" [ngClass]="{newClass : true, newsec: false}"
+              formControlName="email" placeholder="email..">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="column">
+            <label for="country" class="labels">Country</label>
+            <select id="country" name="country" [ngClass]="{newClass : true, newsec: false}" formControlName="country">
+              <option value="Select a country">Select a country</option>
+              <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="column">
+            <label for="subject" class="labels">Subject</label>
+            <textarea id="subject" name="subject" [ngClass]="{newClass : true, newsec: false}" formControlName="subject"
+              placeholder="Write something.." style="height:170px"></textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="column">
+            <input type="submit" value="Submit">
+          </div>
+          <div class="column">
+            <button type="button" value="button" class="del" (click)="deleteRec(reactiveForm.value.id)">Delete</button>
+          </div>
+        </div>
       </form>
     </div>
   </div>

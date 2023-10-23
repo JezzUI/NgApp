@@ -1,62 +1,122 @@
-input[type=text],input[type=email], select, textarea, email {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-  }
-  
-  input[type=submit] {
-    margin-top: 5px;
-    padding: 10px;
-    background-color: #4afad4;
-    width: 200px;
-    float:left;
-    border: none;
-  }
-  
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-  
-  /* Style the container/contact section */
-  .container {
-    border-radius: 5px;
-    background-color: #fff;
-    padding: 10px;
-  }
-  
-  /* Create two columns that float next to eachother */
-  .column {
-    float: left;
-    width: 50%;
-    margin-top: 6px;
-    padding: 20px;
-  }
-  .labels{
-    float: left;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .del{
-    margin-top: 5px;
-    padding: 10px;
-    background-color: #ccc;
-    width: 200px;
-    float:right;
-    border: none;
-  }
-  .newClass{
-    background-color: rgb(245, 151, 151);
-    color: yellow;
-    border: 2px solid rebeccapurple ;
-  }
-  .newsec{
-    background-color: rgb(60, 255, 0);
-  }
+input[type=text],
+input[type=email],
+input[type=number],
+select,
+textarea,
+email {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #817e7e;
+  width: 100%;
+  float: left;
+  border: none;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Style the container/contact section */
+.container {
+  display: flex;
+  /* Use Flexbox for the container */
+  justify-content: center;
+  /* Center the content horizontally */
+  align-items: center;
+  /* Center the content vertically */
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 10px;
+}
+
+/* Create two columns that float next to eachother */
+.row {
+  display: flex;
+  /* Use Flexbox for the row */
+  justify-content: space-between;
+  /* Create space between columns */
+  width: 100%;
+}
+
+.column {
+  flex: 1;
+  /* Each column takes equal width */
+  padding: 20px;
+  /* Add some padding for spacing */
+}
+
+.labels {
+  float: left;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.del {
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #f0edd0;
+  width: 100%;
+  float: right;
+  border: none;
+}
+
+.blurClass {
+  filter: blur(10px);
+}
+
+.popuphid {
+  display: none;
+}
+
+.newClass {
+  background-color: rgb(221, 216, 216);
+  color: rgb(39, 39, 36);
+  border: none
+}
+
+.close {
+  font-size: xx-large;
+  float: right;
+  padding-right: 8px;
+  text-decoration: none;
+  color: #817e7e;
+}
+
+.message {
+  color: rgb(213, 218, 218);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-weight: 500;
+  transform: translate(-50%, -50%);
+}
+
+.newsec {
+  background-color: rgb(60, 255, 0);
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 100px;
+  background-color: rgb(99, 98, 98);
+  color: rgb(69, 82, 82);
+  z-index: 999;
+}

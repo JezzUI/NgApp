@@ -4,17 +4,22 @@
     <input type="radio" name="filter" value="All" 
     [(ngModel)]="selectedRadioButtonValue" 
     (change)="onRadioButtonSelectionChanged()"/>
-    <span class="name">All Courses({{all}})</span>
+    <span class="name">All Products({{all}})</span>
 
-    <input type="radio" name="filter" value="Free" 
+    <input type="radio" name="filter" value="clothing" 
     [(ngModel)]="selectedRadioButtonValue" 
     (change)="onRadioButtonSelectionChanged()"/>
-    <span class="name">Free Courses({{free}})</span>
+    <span class="name">Clothings({{free}})</span>
 
-    <input type="radio" name="filter" value="Premium" 
+    <input type="radio" name="filter" value="jewelery" 
     [(ngModel)]="selectedRadioButtonValue" 
     (change)="onRadioButtonSelectionChanged()"/>
-    <span class="name">Premium Courses({{premium}})</span>
+    <span class="name">Jewelery({{premium}})</span>
+
+    <input type="radio" name="filter" value="electronics" 
+    [(ngModel)]="selectedRadioButtonValue" 
+    (change)="onRadioButtonSelectionChanged()"/>
+    <span class="name">Electronics({{electronics}})</span>
 
     <input type="radio" name="filter" value="ratingAbove4" 
     [(ngModel)]="selectedRadioButtonValue" 

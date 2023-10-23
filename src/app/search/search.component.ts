@@ -1,4 +1,4 @@
-import { Component,EventEmitter,Output } from '@angular/core';
+import { Component,EventEmitter,Input,Output } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -8,7 +8,7 @@ import { Component,EventEmitter,Output } from '@angular/core';
 export class SearchComponent {
 
 
- searchedWord : string = "";
+ @Input()searchedWord : string = "";
 @Output() serchedWordforfiltering : EventEmitter<string> = new EventEmitter<string>;
 
 onChangeVal(){

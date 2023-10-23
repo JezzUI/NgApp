@@ -1,28 +1,31 @@
-<div><button routerLink="/Courses/Course/101">Back to first course</button></div>
+<div><button routerLink="/Courses/Course/1">Back to first product</button></div>
 <div class="course-container">
     <div class="img">
-        <img src="{{course.image}}" width="560" height="280">
+        <img src="{{course.image}}" width="580" height="280"
+            style="padding: 10px;box-sizing: border-box;border-radius: 10px;">
     </div>
     <div>
-        <h1 style="text-align: center;" *ngIf="!editMode">{{course.name | myPipe}}</h1>
+        <h1 style="text-align: center;" *ngIf="!editMode">{{course.title | myPipe}}</h1>
         <div *ngIf="editMode" class="editText" style="text-align: center;">
-        <input type="text" style="padding:10px; width: 80%; text-align: center;" [(ngModel)]="course.name" ></div>
+            <input type="text" style="padding:10px; width: 80%; text-align: center;" [(ngModel)]="course.title">
+        </div>
     </div>
     <div class="course-details">
-        <div style="margin: 0px 10px;"><b>Author: </b>{{course.author}}</div>
-        <div style="margin: 0px 10px;"><b>Duration: </b>{{course.duration}}</div>
-        <div style="margin: 0px 10px;"><b>Type: </b>{{course.type}}</div>
+        <div class="courseDet"><b>Category: </b>{{course.category}}</div>
+        <div class="courseDet"><b>Rating: </b>{{course.rating.rate}}</div>
+        <div class="courseDet"><b>Availiblity: </b>{{course.rating.count}}</div>
     </div>
-    <div style="margin: 0px 10px;">
+    <div style="margin: 0px 10px;text-align: center;">
         <h2>Price: {{course.price}}$</h2>
     </div>
     <div style="margin: 20px 10px;">
         <p>{{course.description}}</p>
-    </div> 
+    </div>
     <!-- <button [routerLink]="['/Courses/Course', course.id]" [queryParams]="{edit:true}">Edit</button> -->
-     <!-- <button id="editBut" (click)="appendQuery()">Edit</button>
+    <!-- <button id="editBut" (click)="appendQuery()">Edit</button>
      <button id="updateBut" (click)="updateQuery()">Update</button> -->
-     <button id="editBut" (click)="appendQuery()" >Edit</button>
-     <button id="updateBut" (click)="editMode=false" [routerLink]="['/Courses/Course', course.id]">Update</button>
+    <div class="buttons">
+        <button id="editBut" (click)="appendQuery()">Edit</button>
+        <button id="updateBut" (click)="editMode=false" [routerLink]="['/Courses/Course', course.id]">Update</button>
+    </div>
 </div>
-s

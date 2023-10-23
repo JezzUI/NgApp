@@ -13,7 +13,8 @@ export class CourseGuardService {
             return true;
         }
         else{
-            this.route.navigate([""]);
+            this.route.navigate(["/Courses"]);
+            alert("Pls login");
             return false;
         
         }

@@ -1,28 +1,52 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Courses } from '../services/courses.service';
+import { Observable } from 'rxjs';
+import { Route, Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.css']
+  styleUrls: ['./courses.component.css'],
+  providers: [Courses]
 })
-export class CoursesComponent{
-  
-   courses = new Courses();
-   course = this.courses.courses;
+export class CoursesComponent implements OnInit{
 
+  data$!: Observable<any>;
+  isLoading: boolean = true;
+  constructor(private courses:Courses, private route: Router){
+
+  }
+   course = [];
+   courseApi = this.courses;
+   
+   ngOnInit(): void {
+    this.courseApi.fetchProd().subscribe({
+      next: res => {
+        this.course = res;
+      },
+      error: error => {
+        console.error('Error loading courses:', error);
+      },
+      complete: () => {
+        this.isLoading = false; // Set loading to false when the API call is complete
+      }
+    });
+  }
   getTotalCourses(){
     return this.course.length;
   }
   getTotalFreeCourses(){
-    return this.course.filter(course => course.type === 'Free').length ;
+    return this.course.filter(course => course.category.includes("clothing")).length ;
   }
   getTotalPremiumCourses(){
-    return this.course.filter(course => course.type === 'Premium').length;
+    return this.course.filter(course => course.category === 'jewelery').length;
+  }
+  getElectronics(){
+    return this.course.filter(course => course.category === 'electronics').length;
   }
   getTotalRating4Courses(){
      return this.course.reduce(function(start: Array< | any>, cur){
-    if(cur.ratings > 4){
+    if(cur.rating.rate >= 4){
     start.push(cur);
     }
     return start;
@@ -40,6 +64,10 @@ export class CoursesComponent{
     this.courseCountRadioButton = data;
     }
     //console.log(this.courseCountRadioButton);
+  }
+
+  onShow(id: number){
+    this.route.navigate(['/Courses/Course', id]);
   }
 
   onSearchTextEntered(searchValue: string){

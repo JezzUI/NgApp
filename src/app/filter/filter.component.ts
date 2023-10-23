@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-filter',
@@ -15,6 +15,7 @@ export class FilterComponent implements OnInit {
   @Input() free: number = 0;
   @Input() premium: number = 0;
   @Input() rating4: number =0;
+  @Input() electronics: number =0;
 
 
   selectedRadioButtonValue: string = 'All';
