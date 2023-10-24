@@ -4,6 +4,7 @@ import { GlobalDeactivate } from '../canDeactivateGuard.service';
 import { Observable, map } from 'rxjs';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-contact',
@@ -27,7 +28,7 @@ export class ContactComponent implements OnInit, GlobalDeactivate {
   @ViewChild("pop") popupId: ElementRef;
   @ViewChild("cont") cont: ElementRef;
 
-  constructor(private router: Router, private http: HttpClient, private renderer: Renderer2, private ele: ElementRef) {
+  constructor(private router: Router, private http: HttpClient, private renderer: Renderer2, private ele: ElementRef ,private authService: AuthService) {
 
   }
 
@@ -97,6 +98,7 @@ export class ContactComponent implements OnInit, GlobalDeactivate {
 
   onSubmit(contactInformation: { firstName: string, lastName: String, email: String, country: string, subject: string }) {
 
+    if(this.authService.isAuthenticated()){
     this.submit = true;
     console.log(contactInformation)
     // console.log(contactInformation.value["firstname"])
@@ -108,6 +110,10 @@ export class ContactComponent implements OnInit, GlobalDeactivate {
         this.response = true;
         this.openModal();
       })
+    }
+  else{
+    this.router.navigate(["/Login"]);
+  }
   }
 
   fetchInfo() {
@@ -140,10 +146,11 @@ export class ContactComponent implements OnInit, GlobalDeactivate {
   }
 
   deleteRec(id: string) {
+  
     console.log(this.contactInfo[0].id)
     id = this.contactInfo[0].id;
     this.http.delete("https://jezz-001-default-rtdb.firebaseio.com/contactInfo/customer/" + id + ".json").subscribe();
-  }
+}
 
   
   // Function to disable scrolling

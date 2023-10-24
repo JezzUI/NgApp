@@ -19,13 +19,14 @@ import { ErrorComponent } from './error/error.component';
 import { CourseComponent } from './courses/course/course.component';
 import { CourseGuardService } from './course-guard.service';
 import { AuthService } from './auth.service';
+import { JwtService } from './jwt.service';
 import { CanDeactivateGuard } from './canDeactivateGuard.service';
 import { MyPipePipe } from './my-pipe.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-// import { NewappModule } from './newapp/newapp.module';
+// import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+// import {MatButtonModule} from '@angular/material/button';
+// import {MatCardModule} from '@angular/material/card';
+// // import { NewappModule } from './newapp/newapp.module';
 
 
 
@@ -56,7 +57,7 @@ import {MatCardModule} from '@angular/material/card';
     RouterModule,
     BrowserAnimationsModule
   ],
-  providers: [CourseGuardService, AuthService, CanDeactivateGuard],
+  providers: [CourseGuardService, AuthService, CanDeactivateGuard, JwtService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

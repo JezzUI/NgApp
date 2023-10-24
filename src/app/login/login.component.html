@@ -1,41 +1,37 @@
-<div class="container" *ngIf="destroy">
-    <div class="loginForm" >
-        <label for="name">Name : </label>
-        <input type="text" name="name" id="name"><br><br>
 
-        <label for="age">Age : </label>
-        <input type="number" name="age" id="age"><br><br>
-
-        <label for="pwd">New Password : </label>
-        <input type="password" name="pwd" id="pwd"><br><br>
-
-        <label for="confirmPwd">Confirm Password : </label>
-        <input type="password" name="confirmPwd" id="confirmPwd"><br><br>
-
-        <button type="submit" (click)="submit()">Submit</button>
-
+<form [formGroup]="reactiveForm" [noValidate]="false" (ngSubmit)="onSubmit()">
+    <div class="head" [ngClass]= "{signUp: isSign}">
+        <p style="font-size: 230%;" *ngIf="authType==='SignUp'">Sign Up</p>
+        <p style="font-size: 230%;" *ngIf="authType==='Login'">Log In</p>
     </div>
-</div>
-
-<!-- <div class="containerCourses" *ngIf="showCourses">
-    <div class="main-container">
-        <div class="nav-container">
-            <ul>
-              <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="">Home</a></li>
-              <li routerLinkActive="active"><a routerLink="About">About</a></li>
-                <li routerLinkActive="active"><a routerLink="Contact">Contact</a></li>
-                <li routerLinkActive="active"><a routerLink="Courses">Courses</a></li>
-            </ul>
-    
+    <div class="row">
+        <div class="column" *ngIf="authType==='SignUp'">
+            <input type="text" id="fname" class="inputs" name="firstname" formControlName="username"
+                placeholder="User name.." required>
         </div>
-        <div class="component-container">
-            <app-home></app-home>
-            <app-about></app-about>
-            <app-contact></app-contact>
-            <app-courses></app-courses>
-            <router-outlet></router-outlet>
-        </div> 
+        <div class="column">
+            <input type="email" id="email" name="email" class="inputs" formControlName="email" placeholder="Email..">
+        </div>
+        <div class="column">
+            <input type="password" id="password" name="password" class="inputs" formControlName="password"
+                placeholder="Password..">
+        </div>
+        <div class="column">
+            <div class="but">
+                <button type="submit" value="Submit">Submit</button>
+            </div>
+            <div class="but">
+                <button type="submit" value="Submit">Reset</button>
+            </div>
+        </div>
+        <div *ngIf="authType==='SignUp'">
+            <span>Already have an account?</span>
+            <a routerLink="/Login">login</a>
+        </div>
+        <div *ngIf="authType==='Login'">
+            <span>Don't have an account?</span>
+            <a routerLink="/SignUp" style="padding: 5px;text-decoration: none;">Signup</a>
+        </div>
     </div>
 
-</div> -->
-  
+</form>

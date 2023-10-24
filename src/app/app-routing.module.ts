@@ -14,10 +14,11 @@ const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'Home', component: HomeComponent},
   {path: 'About', component: AboutComponent},
-  {path: 'Contact', canDeactivate:[CanDeactivateGuard], component: ContactComponent},
+  {path: 'Contact', canDeactivate:[CanDeactivateGuard], component: ContactComponent, canActivateChild: [CourseGuardService]},
   {path: 'Courses',component: CoursesComponent},
   {path: 'About/Home', component: HomeComponent},
   {path: 'Login', component: LoginComponent},
+  {path: 'SignUp', component: LoginComponent},
   // {path: 'Courses/Course/:id', component: CourseComponent},
   {path: 'Courses', canActivateChild: [CourseGuardService], children:[{
     path: 'Course/:id', component: CourseComponent,

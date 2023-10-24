@@ -13,13 +13,10 @@ export class CourseGuardService {
             return true;
         }
         else{
-            this.route.navigate(["/Courses"]);
-            alert("Pls login");
+            this.route.navigate(["/Login"]);
             return false;
         
         }
-
-  
     }
     canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
         return this.canActivate(route,state);

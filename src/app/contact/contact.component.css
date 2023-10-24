@@ -6,7 +6,8 @@ textarea,
 email {
   width: 100%;
   padding: 12px;
-  border: 1px solid #6d7070;
+  border: none;
+  border-radius: 5px;
   margin-top: 6px;
   margin-bottom: 16px;
   resize: vertical;
@@ -19,12 +20,16 @@ input[type=submit] {
   width: 100%;
   float: left;
   border: none;
+  border: none;
+  border-radius: 5px;
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #b1e4e7;
 }
-
+button:hover{
+  background-color: #9ca0a0;
+}
 /* Style the container/contact section */
 .container {
   display: flex;

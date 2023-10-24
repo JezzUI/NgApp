@@ -1,68 +1,104 @@
-
-.container{
-    display: flex;
-  align-items: center;
+.head{
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%);
+}
+.row {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
   justify-content: center;
+  align-items: center;
+  align-content: flex-start;
 }
 
-.loginForm{
-  width: 400px;
-  height: 300px;
+.column {
   padding: 10px;
-  margin: 10px;
+  margin: 5px;
+  width: 50%;
 }
-input[type=text],input[type=password],input[type=number], select, textarea, email {
+
+.labels {
+  padding: 5px;
+  font-weight: normal;
+}
+
+.inputs {
+  padding: 2%;
+  margin: 5px;
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
-button[type=submit] {
-  margin-top: 5px;
-  padding: 10px;
-  background-color: #4afad4;
-  width: 200px;
-  float:left;
   border: none;
+  border-radius: 5px;
+  font-size: larger;
 }
-.containerCourses{
+
+button {
+  padding: 2%;
+  margin: 5px;
+  margin-left: 28%;
+  align-self: center;
+  justify-self: center;
+  width: 50%;
+  background-color: rgb(175, 179, 182);
+  color: aliceblue;
+  border: none;
+  border-radius: 5px;
+}
+
+.column {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.but {
+  width: 50%;
+  background-color: rgb(175, 179, 182);
+  color: aliceblue;
+  border: none;
+  border-radius: 5px;
+  padding: 6px;
+  margin: 5px;
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .column { 
+    padding: 10px;
+    margin: 5px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .but {
     width: 100%;
-    margin:0px auto;
-    text-align: center;
-    background-color: #3c555c;
+    padding: 4px;
+  }
+
+  .inputs {
+    padding: 3%;
+    margin: 5px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: small;
+  }
+  .head{
+    top: 36%;
+  }
+.signUp{
+  top: 31%
 }
 
-
-.main-container{
-  width: 100%;
-  margin: 10px auto;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #bef70500;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
-}
-.active{
-  background-color: #6b6e6e;
 }
