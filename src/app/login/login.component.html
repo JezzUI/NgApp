@@ -1,10 +1,14 @@
+<div *ngIf="isLoading">
+    <div class="loadcontainer">
+        <div class="loading-spinner">
+        </div>
+        <p class="loadingtext">Authenticating</p>
+    </div>
+</div>
 
 <form [formGroup]="reactiveForm" [noValidate]="false" (ngSubmit)="onSubmit()">
-    <div class="head" [ngClass]= "{signUp: isSign}">
-        <p style="font-size: 230%;" *ngIf="authType==='SignUp'">Sign Up</p>
-        <p style="font-size: 230%;" *ngIf="authType==='Login'">Log In</p>
-    </div>
     <div class="row">
+        <app-errorlist [errors]="errors"></app-errorlist>
         <div class="column" *ngIf="authType==='SignUp'">
             <input type="text" id="fname" class="inputs" name="firstname" formControlName="username"
                 placeholder="User name.." required>

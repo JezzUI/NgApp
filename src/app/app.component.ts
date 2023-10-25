@@ -1,4 +1,4 @@
-import { Component, VERSION, ViewEncapsulation } from '@angular/core';
+import { Component, VERSION, ViewEncapsulation, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Courses } from './services/courses.service';
 import { AuthService } from './auth.service';
@@ -15,6 +15,7 @@ export class AppComponent {
   title = 'CustomBindings';
   name = 'Angular ' + VERSION.major;
   showHeader: boolean = true;
+  currentUser$ = inject(AuthService).currentUser;
 
   constructor(private router: Router, courses: Courses, private authService:AuthService) {
     // courses.courses.length;
@@ -32,10 +33,12 @@ export class AppComponent {
   }
 
   logIn(){
-    this.authService.login();
+    this.authService.loggingIn();
   }
 
   logOut(){
     this.authService.logout(); 
   }
 }
+
+

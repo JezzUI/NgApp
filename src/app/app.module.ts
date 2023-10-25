@@ -23,6 +23,7 @@ import { JwtService } from './jwt.service';
 import { CanDeactivateGuard } from './canDeactivateGuard.service';
 import { MyPipePipe } from './my-pipe.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorlistComponent } from './shared/errorlist.component';
 // import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // import {MatButtonModule} from '@angular/material/button';
 // import {MatCardModule} from '@angular/material/card';
@@ -45,7 +46,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     ErrorComponent,
     CourseComponent,
-    MyPipePipe
+    MyPipePipe,
+    ErrorlistComponent
     
   ],
   imports: [

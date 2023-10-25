@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="containerCourses">
         <div class="main-container">
@@ -9,12 +8,14 @@
                     <li routerLinkActive="active"><a routerLink="About">About</a></li>
                     <li routerLinkActive="active"><a routerLink="Contact">Contact</a></li>
                     <li routerLinkActive="active"><a routerLink="/Courses">Products</a></li>
-                    <div class="auth" >
-                        <li routerLinkActive="active"><a routerLink="/Login" >Log In</a></li>
-                        <li routerLinkActive="active"><a routerLink="/SignUp" >Sign Up</a></li>
+                    <div class="auth">
+                        <li *ngIf="currentUser$ | async as currentUser"><img [src]="currentUser.image"></li>
+                        <li *ngIf="currentUser$ | async as currentUser"><a routerLink="/" style="font-weight: 900;">{{currentUser.username}}</a></li>
+                        <li routerLinkActive="active"><a routerLink="/Login">Log In</a></li>
+                        <li routerLinkActive="active"><a routerLink="/SignUp">Sign Up</a></li>
                     </div>
                 </ul>
-            </div> 
+            </div>
             <div class="component-container">
                 <!-- <app-home></app-home>
                 <app-about></app-about>
