@@ -1,5 +1,5 @@
 import { Component, VERSION, ViewEncapsulation, inject } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Event, NavigationCancel, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { Courses } from './services/courses.service';
 import { AuthService } from './auth.service';
 
@@ -16,8 +16,9 @@ export class AppComponent {
   name = 'Angular ' + VERSION.major;
   showHeader: boolean = true;
   currentUser$ = inject(AuthService).currentUser;
-
-  constructor(private router: Router, courses: Courses, private authService:AuthService) {
+  isLoading: boolean = false;
+  route: Router = inject(Router);
+  constructor(private router: Router, courses: Courses, private authService: AuthService) {
     // courses.courses.length;
     // router.events.subscribe((val) => {
     //   if (val instanceof NavigationEnd) {
@@ -32,12 +33,19 @@ export class AppComponent {
 
   }
 
-  logIn(){
+  ngOnInit() {
+    this.route.events.subscribe((currentEvent: Event) => {
+      if (currentEvent instanceof NavigationStart) this.isLoading = true;
+      else if (currentEvent instanceof NavigationEnd || currentEvent instanceof NavigationCancel) this.isLoading = false;
+    })
+  }
+
+  logIn() {
     this.authService.loggingIn();
   }
 
-  logOut(){
-    this.authService.logout(); 
+  logOut() {
+    this.authService.logout();
   }
 }
 

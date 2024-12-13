@@ -10,7 +10,8 @@
                     <li routerLinkActive="active"><a routerLink="/Courses">Products</a></li>
                     <div class="auth">
                         <li *ngIf="currentUser$ | async as currentUser"><img [src]="currentUser.image"></li>
-                        <li *ngIf="currentUser$ | async as currentUser"><a routerLink="/" style="font-weight: 900;">{{currentUser.username}}</a></li>
+                        <li *ngIf="currentUser$ | async as currentUser"><a routerLink="/"
+                                style="font-weight: 900;">{{currentUser.username}}</a></li>
                         <li routerLinkActive="active"><a routerLink="/Login">Log In</a></li>
                         <li routerLinkActive="active"><a routerLink="/SignUp">Sign Up</a></li>
                     </div>
@@ -21,7 +22,16 @@
                 <app-about></app-about>
                 <app-contact></app-contact>
                 <app-courses></app-courses> -->
-                <router-outlet></router-outlet>
+                <div *ngIf="isLoading; else content">
+                    <div class="loading-container">
+                        <div class="loading-spinner">
+                        </div>
+                        <p class="loading-text">Loading</p>
+                    </div>
+                </div>
+                <ng-template #content>
+                    <router-outlet></router-outlet>
+                </ng-template>
             </div>
         </div>
 

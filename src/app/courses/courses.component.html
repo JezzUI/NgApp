@@ -44,7 +44,7 @@
                     <div class="course-price"><b>Available:</b> {{course.rating.count}}</div>
                 </div>
                 <div class="course-buttons">
-                    <button class="btn btn-buy">Buy Now</button> 
+                    <button class="btn btn-buy" [routerLink]="'Course/BuyNow'" [state]="course">Buy Now</button> 
                     <button class="btn btn-show" (click)="onShow(course.id)" >Show Deatils</button>
                 </div>
             </div>

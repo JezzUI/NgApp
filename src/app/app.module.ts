@@ -24,6 +24,7 @@ import { CanDeactivateGuard } from './canDeactivateGuard.service';
 import { MyPipePipe } from './my-pipe.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorlistComponent } from './shared/errorlist.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 // import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // import {MatButtonModule} from '@angular/material/button';
 // import {MatCardModule} from '@angular/material/card';
@@ -47,7 +48,8 @@ import { ErrorlistComponent } from './shared/errorlist.component';
     ErrorComponent,
     CourseComponent,
     MyPipePipe,
-    ErrorlistComponent
+    ErrorlistComponent,
+    CheckoutComponent
     
   ],
   imports: [

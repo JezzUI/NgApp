@@ -28,7 +28,7 @@ export class ContactComponent implements OnInit, GlobalDeactivate {
   @ViewChild("pop") popupId: ElementRef;
   @ViewChild("cont") cont: ElementRef;
 
-  constructor(private router: Router, private http: HttpClient, private renderer: Renderer2, private ele: ElementRef ,private authService: AuthService) {
+  constructor(private router: Router, private http: HttpClient, private renderer: Renderer2, private ele: ElementRef, private authService: AuthService) {
 
   }
 
@@ -56,7 +56,10 @@ export class ContactComponent implements OnInit, GlobalDeactivate {
 
   canExit() {
     if (!this.submit) {
-      if (this.fName || this.lName || this.country || this.subject) {
+      if (this.reactiveForm.get("firstname")
+        || this.reactiveForm.get("lastname")
+        || this.reactiveForm.get("country")
+        || this.reactiveForm.get("subject")) {
         return confirm("You have some unsaved changes, Do you really want to discard the changes?")
 
       }
@@ -98,22 +101,22 @@ export class ContactComponent implements OnInit, GlobalDeactivate {
 
   onSubmit(contactInformation: { firstName: string, lastName: String, email: String, country: string, subject: string }) {
 
-    if(this.authService.isAuthenticated()){
-    this.submit = true;
-    console.log(contactInformation)
-    // console.log(contactInformation.value["firstname"])
-    const headers = { headers: "Jezz" };
+    if (this.authService.isAuthenticated()) {
+      this.submit = true;
+      console.log(contactInformation)
+      // console.log(contactInformation.value["firstname"])
+      const headers = { headers: "Jezz" };
 
-    this.http.post("https://jezz-001-default-rtdb.firebaseio.com/contactInfo/customer.json",
-      contactInformation,
-      { headers: headers }).subscribe((value) => {
-        this.response = true;
-        this.openModal();
-      })
+      this.http.post("https://jezz-001-default-rtdb.firebaseio.com/contactInfo/customer.json",
+        contactInformation,
+        { headers: headers }).subscribe((value) => {
+          this.response = true;
+          this.openModal();
+        })
     }
-  else{
-    this.router.navigate(["/Login"]);
-  }
+    else {
+      this.router.navigate(["/Login"]);
+    }
   }
 
   fetchInfo() {
@@ -146,13 +149,13 @@ export class ContactComponent implements OnInit, GlobalDeactivate {
   }
 
   deleteRec(id: string) {
-  
+
     console.log(this.contactInfo[0].id)
     id = this.contactInfo[0].id;
     this.http.delete("https://jezz-001-default-rtdb.firebaseio.com/contactInfo/customer/" + id + ".json").subscribe();
-}
+  }
 
-  
+
   // Function to disable scrolling
   disableScroll() {
     this.renderer.addClass(document.body, 'disable-scroll');
